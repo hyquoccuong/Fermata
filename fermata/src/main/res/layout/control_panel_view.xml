@@ -38,7 +38,7 @@
             android:padding="4dp" />
     </LinearLayout>
 
-    <me.aap.fermata.ui.view.ControlPanelSeekView
+    <com.immrhy.learningandroidapptool.fermata.ui.view.ControlPanelSeekView
         android:id="@+id/seek_bar"
         style="?attr/appSeekBarStyle"
         android:layout_width="0dp"
@@ -91,7 +91,7 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="show_hide_bars, seek_bar, seek_total" />
 
-    <me.aap.utils.ui.view.ImageButton
+    <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
         android:id="@+id/control_prev"
         style="?attr/appControlPanelStyle"
         android:layout_width="0dp"
@@ -110,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <me.aap.utils.ui.view.ImageButton
+    <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
         android:id="@+id/control_rw"
         style="?attr/appControlPanelStyle"
         android:layout_width="0dp"
@@ -128,7 +128,7 @@
         app:layout_constraintStart_toEndOf="@id/control_prev"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <me.aap.utils.ui.view.ImageButton
+    <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
         android:id="@+id/control_play_pause"
         style="?attr/appControlPanelStyle"
         android:layout_width="0dp"
@@ -146,7 +146,7 @@
         app:layout_constraintStart_toEndOf="@id/control_rw"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <me.aap.utils.ui.view.ImageButton
+    <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
         android:id="@+id/control_ff"
         style="?attr/appControlPanelStyle"
         android:layout_width="0dp"
@@ -164,7 +164,7 @@
         app:layout_constraintStart_toEndOf="@id/control_play_pause"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <me.aap.utils.ui.view.ImageButton
+    <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
         android:id="@+id/control_next"
         style="?attr/appControlPanelStyle"
         android:layout_width="0dp"

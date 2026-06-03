@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <!-- ====================== Equalizer  ====================== -->
-    <me.aap.utils.ui.view.OutlinedConstraintLayout
+    <com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout
         android:id="@+id/equalizer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:numLabels="2">
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/equalizer_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/equalizer_title" />
 
-        <me.aap.utils.pref.PreferenceView
+        <com.immrhy.learningandroidapptool.utils.pref.PreferenceView
             android:id="@+id/equalizer_preset"
             style="?attr/appEqualizerStyle"
             android:layout_width="0dp"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/equalizer_title"
             tools:ignore="RtlSymmetry" />
 
-        <me.aap.utils.ui.view.ImageButton
+        <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
             android:id="@+id/equalizer_preset_save"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
             app:layout_constraintStart_toEndOf="@id/equalizer_preset"
             app:layout_constraintTop_toTopOf="@id/equalizer_preset" />
 
-        <me.aap.utils.ui.view.ImageButton
+        <com.immrhy.learningandroidapptool.utils.ui.view.ImageButton
             android:id="@+id/equalizer_preset_delete"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -109,11 +109,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/equalizer_preset" />
-    </me.aap.utils.ui.view.OutlinedConstraintLayout>
+    </com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout>
     <!-- ======================================================== -->
 
     <!-- ====================== Virtualizer  ====================== -->
-    <me.aap.utils.ui.view.OutlinedConstraintLayout
+    <com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout
         android:id="@+id/virtualizer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         app:layout_constraintTop_toBottomOf="@id/equalizer"
         app:numLabels="2">
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/virtualizer_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -157,7 +157,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/virtualizer_title" />
 
-        <me.aap.utils.pref.PreferenceView
+        <com.immrhy.learningandroidapptool.utils.pref.PreferenceView
             android:id="@+id/virtualizer_mode"
             style="?attr/appEqualizerStyle"
             android:layout_width="match_parent"
@@ -172,7 +172,7 @@
             app:layout_constraintTop_toBottomOf="@id/virtualizer_title"
             tools:ignore="RtlSymmetry" />
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/virtualizer_seek_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -202,11 +202,11 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/virtualizer_seek_title"
             app:layout_constraintTop_toTopOf="@id/virtualizer_seek_title" />
-    </me.aap.utils.ui.view.OutlinedConstraintLayout>
+    </com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout>
     <!-- ======================================================== -->
 
     <!-- ====================== Bass  ====================== -->
-    <me.aap.utils.ui.view.OutlinedConstraintLayout
+    <com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout
         android:id="@+id/bass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
         app:layout_constraintTop_toBottomOf="@id/virtualizer"
         app:numLabels="2">
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/bass_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -249,7 +249,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/bass_title" />
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/bass_seek_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -278,11 +278,11 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/bass_seek_title"
             app:layout_constraintTop_toTopOf="@id/bass_seek_title" />
-    </me.aap.utils.ui.view.OutlinedConstraintLayout>
+    </com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout>
     <!-- ======================================================== -->
 
     <!-- ====================== Volume  ====================== -->
-    <me.aap.utils.ui.view.OutlinedConstraintLayout
+    <com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout
         android:id="@+id/vol_boost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -296,7 +296,7 @@
         app:layout_constraintTop_toBottomOf="@id/bass"
         app:numLabels="2">
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/vol_boost_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -325,7 +325,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/vol_boost_title" />
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/vol_boost_seek_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -354,11 +354,11 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/vol_boost_seek_title"
             app:layout_constraintTop_toTopOf="@id/vol_boost_seek_title" />
-    </me.aap.utils.ui.view.OutlinedConstraintLayout>
+    </com.immrhy.learningandroidapptool.utils.ui.view.OutlinedConstraintLayout>
     <!-- ======================================================== -->
 
     <!-- ====================== Apply to  ====================== -->
-    <me.aap.utils.ui.view.OutlinedLinearLayout
+    <com.immrhy.learningandroidapptool.utils.ui.view.OutlinedLinearLayout
         android:id="@+id/apply_to"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -371,7 +371,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vol_boost">
 
-        <me.aap.utils.ui.view.ScalableTextView
+        <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
             android:id="@+id/apply_to_title"
             style="?attr/appEqualizerStyle"
             android:layout_width="wrap_content"
@@ -382,7 +382,7 @@
             android:text="@string/apply_to"
             android:textAppearance="?attr/textAppearanceListItem" />
 
-        <me.aap.utils.pref.PreferenceView
+        <com.immrhy.learningandroidapptool.utils.pref.PreferenceView
             android:id="@+id/track"
             style="?attr/appEqualizerStyle"
             android:layout_width="match_parent"
@@ -395,7 +395,7 @@
             android:paddingStart="5dp"
             tools:ignore="RtlSymmetry" />
 
-        <me.aap.utils.pref.PreferenceView
+        <com.immrhy.learningandroidapptool.utils.pref.PreferenceView
             android:id="@+id/folder"
             style="?attr/appEqualizerStyle"
             android:layout_width="match_parent"
@@ -408,7 +408,7 @@
             android:paddingStart="5dp"
             tools:ignore="RtlSymmetry" />
 
-    </me.aap.utils.ui.view.OutlinedLinearLayout>
+    </com.immrhy.learningandroidapptool.utils.ui.view.OutlinedLinearLayout>
     <!-- ======================================================== -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

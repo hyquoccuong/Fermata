@@ -1,5 +1,5 @@
 android {
-    namespace = 'me.aap.fermata.whisper'
+    namespace = 'com.immrhy.learningandroidapptool.fermata.whisper'
     defaultConfig {
         versionCode 1
         versionName '1.0'
@@ -32,7 +32,7 @@ ext {
             [
                     name       : 'whisper',
                     icon       : 'subgen',
-                    class      : 'me.aap.fermata.whisper.WhisperAddon',
+                    class      : 'com.immrhy.learningandroidapptool.fermata.whisper.WhisperAddon',
                     hasSettings: false
             ]
     ]

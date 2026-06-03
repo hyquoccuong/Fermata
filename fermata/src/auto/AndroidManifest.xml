@@ -47,7 +47,7 @@
             tools:ignore="MetadataTagInsideApplicationTag" />
 
         <service
-            android:name="me.aap.fermata.auto.CarService"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.CarService"
             android:exported="true"
             android:label="@string/app_name"
             tools:ignore="ExportedService">
@@ -60,7 +60,7 @@
         </service>
 
         <service
-            android:name="me.aap.fermata.auto.MirrorService"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.MirrorService"
             android:exported="true"
             android:icon="@drawable/mirror"
             android:label="@string/mirror_service_name"
@@ -74,7 +74,7 @@
         </service>
 
         <service
-            android:name="me.aap.fermata.auto.MirrorServiceFS"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.MirrorServiceFS"
             android:exported="true"
             android:icon="@drawable/mirror_fs"
             android:label="@string/mirror_fs_service_name"
@@ -86,25 +86,25 @@
         </service>
 
         <activity
-            android:name="me.aap.fermata.auto.ProjectionActivity"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.ProjectionActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance" />
 
         <activity
-            android:name="me.aap.fermata.auto.LauncherActivity"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.LauncherActivity"
             android:configChanges="colorMode|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode"
             android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance" />
 
         <service
-            android:name="me.aap.fermata.auto.ProjectionService"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.ProjectionService"
             android:exported="false"
             android:foregroundServiceType="mediaProjection" />
 
         <service
-            android:name="me.aap.fermata.auto.AccessibilityEventDispatcherService"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.AccessibilityEventDispatcherService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -116,7 +116,7 @@
         </service>
 
         <service
-            android:name="me.aap.fermata.auto.XposedEventDispatcherService"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.XposedEventDispatcherService"
             android:exported="true"
             tools:ignore="ExportedService" />
 
@@ -132,7 +132,7 @@
 
         <!-- Auto start MediaService when connected to bluetooth (AA?) -->
         <receiver
-            android:name="me.aap.fermata.auto.MediaServiceStarter"
+            android:name="com.immrhy.learningandroidapptool.fermata.auto.MediaServiceStarter"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />

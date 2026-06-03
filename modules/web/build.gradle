@@ -1,5 +1,5 @@
 android {
-    namespace = "me.aap.fermata.addon.web"
+    namespace = "com.immrhy.learningandroidapptool.fermata.addon.web"
     defaultConfig {
         versionCode 1
         versionName "1.0"
@@ -11,13 +11,13 @@ ext {
             [
                     name : 'youtube',
                     icon : 'youtube',
-                    class: 'me.aap.fermata.addon.web.yt.YoutubeAddon',
+                    class: 'com.immrhy.learningandroidapptool.fermata.addon.web.yt.YoutubeAddon',
                     order: 2
             ],
             [
                     name : 'web_browser',
                     icon : 'web',
-                    class: 'me.aap.fermata.addon.web.WebBrowserAddon',
+                    class: 'com.immrhy.learningandroidapptool.fermata.addon.web.WebBrowserAddon',
                     order: 3
             ]
     ]

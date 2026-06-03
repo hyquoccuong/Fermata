@@ -1,10 +1,10 @@
 -keepattributes LineNumberTable,SourceFile
--keepnames class me.aap.** { *; }
--keep class me.aap.fermata.auto.** { *; }
+-keepnames class com.immrhy.learningandroidapptool.** { *; }
+-keep class com.immrhy.learningandroidapptool.fermata.auto.** { *; }
 -keep class org.videolan.libvlc.** { *; }
--keep class me.aap.fermata.vfs.sftp.** { *; }
--keep class me.aap.fermata.vfs.smb.** { *; }
--keep class me.aap.fermata.vfs.gdrive.** { *; }
+-keep class com.immrhy.learningandroidapptool.fermata.vfs.sftp.** { *; }
+-keep class com.immrhy.learningandroidapptool.fermata.vfs.smb.** { *; }
+-keep class com.immrhy.learningandroidapptool.fermata.vfs.gdrive.** { *; }
 -keep class androidx.car.app.** { *; }
 -keep class org.chromium.net.impl.NativeCronetEngineBuilderImpl { *; }
 

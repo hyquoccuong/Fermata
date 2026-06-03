@@ -1,5 +1,5 @@
 android {
-    namespace = "me.aap.fermata.vfs.smb"
+    namespace = "com.immrhy.learningandroidapptool.fermata.vfs.smb"
     defaultConfig {
         versionCode 1
         versionName "1.0"

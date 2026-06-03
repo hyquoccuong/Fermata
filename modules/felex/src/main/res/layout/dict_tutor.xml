@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <me.aap.utils.ui.view.ScalableTextView
+    <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
         android:id="@+id/word"
         style="?attr/popupMenuStyle"
         android:layout_width="wrap_content"
@@ -12,7 +12,7 @@
         android:layout_margin="20dp"
         android:textSize="50sp" />
 
-    <me.aap.utils.ui.view.ScalableTextView
+    <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
         android:id="@+id/trans"
         style="?attr/popupMenuStyle"
         android:layout_width="wrap_content"

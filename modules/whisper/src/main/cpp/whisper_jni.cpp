@@ -8,7 +8,7 @@
 #include "ggml.h"
 #include "whisper.h"
 
-#define  LOG_TAG "[me.aap.fermata.Whisper]"
+#define  LOG_TAG "[com.immrhy.learningandroidapptool.fermata.Whisper]"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #ifndef NDEBUG
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
@@ -206,7 +206,7 @@ struct FrameBuffer {
 };
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_me_aap_fermata_whisper_Whisper_create(JNIEnv *env, jclass, jstring jModelPath,
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_create(JNIEnv *env, jclass, jstring jModelPath,
 																					 jstring jvadPath, jstring jlang,
 																					 jboolean useGpu) {
 	const char *modelPath = env->GetStringUTFChars(jModelPath, nullptr);
@@ -240,7 +240,7 @@ Java_me_aap_fermata_whisper_Whisper_create(JNIEnv *env, jclass, jstring jModelPa
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_me_aap_fermata_whisper_Whisper_reconfigure(JNIEnv *env, jclass, jlong sessionPtr,
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_reconfigure(JNIEnv *env, jclass, jlong sessionPtr,
 																								jstring jlang) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
@@ -251,7 +251,7 @@ Java_me_aap_fermata_whisper_Whisper_reconfigure(JNIEnv *env, jclass, jlong sessi
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_me_aap_fermata_whisper_Whisper_resample(JNIEnv *env, jclass, jlong sessionPtr, jobject byteBuf,
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_resample(JNIEnv *env, jclass, jlong sessionPtr, jobject byteBuf,
 																						 jint chunkLen, jint bytesPerSample, jint channels,
 																						 jint frameRate) {
 	assert(sessionPtr);
@@ -316,7 +316,7 @@ Java_me_aap_fermata_whisper_Whisper_resample(JNIEnv *env, jclass, jlong sessionP
 }
 
 extern "C" JNIEXPORT jint JNICALL
-Java_me_aap_fermata_whisper_Whisper_fullTranscribe(JNIEnv *env, jclass, jlong sessionPtr) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_fullTranscribe(JNIEnv *env, jclass, jlong sessionPtr) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	if (session->size == 0) return 0;
@@ -417,7 +417,7 @@ Java_me_aap_fermata_whisper_Whisper_fullTranscribe(JNIEnv *env, jclass, jlong se
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_me_aap_fermata_whisper_Whisper_text(JNIEnv *env, jclass, jlong sessionPtr, jint segmentIdx) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_text(JNIEnv *env, jclass, jlong sessionPtr, jint segmentIdx) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	const char *segTxt = whisper_full_get_segment_text(session->ctx, segmentIdx + session->curSkip);
@@ -425,7 +425,7 @@ Java_me_aap_fermata_whisper_Whisper_text(JNIEnv *env, jclass, jlong sessionPtr, 
 }
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_me_aap_fermata_whisper_Whisper_start(JNIEnv *, jclass, jlong sessionPtr, jint segmentIdx) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_start(JNIEnv *, jclass, jlong sessionPtr, jint segmentIdx) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	auto t = session->timestampOffset +
@@ -434,7 +434,7 @@ Java_me_aap_fermata_whisper_Whisper_start(JNIEnv *, jclass, jlong sessionPtr, ji
 }
 
 extern "C" JNIEXPORT jlong JNICALL
-Java_me_aap_fermata_whisper_Whisper_end(JNIEnv *, jclass, jlong sessionPtr, jint segmentIdx) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_end(JNIEnv *, jclass, jlong sessionPtr, jint segmentIdx) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	auto t = session->timestampOffset +
@@ -443,7 +443,7 @@ Java_me_aap_fermata_whisper_Whisper_end(JNIEnv *, jclass, jlong sessionPtr, jint
 }
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_me_aap_fermata_whisper_Whisper_lang(JNIEnv *env, jclass, jlong sessionPtr) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_lang(JNIEnv *env, jclass, jlong sessionPtr) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	auto lang = session->params.language;
@@ -454,14 +454,14 @@ Java_me_aap_fermata_whisper_Whisper_lang(JNIEnv *env, jclass, jlong sessionPtr) 
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_me_aap_fermata_whisper_Whisper_reset(JNIEnv *, jclass, jlong sessionPtr) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_reset(JNIEnv *, jclass, jlong sessionPtr) {
 	assert(sessionPtr);
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	session->reset();
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_me_aap_fermata_whisper_Whisper_release(JNIEnv *, jclass, jlong sessionPtr) {
+Java_com_immrhy_learningandroidapptool_fermata_whisper_Whisper_release(JNIEnv *, jclass, jlong sessionPtr) {
 	if (!sessionPtr) return;
 	auto session = reinterpret_cast<WhisperSession *>(sessionPtr);
 	whisper_free(session->ctx);

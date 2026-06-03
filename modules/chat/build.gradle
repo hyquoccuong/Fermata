@@ -1,5 +1,5 @@
 android {
-    namespace = "me.aap.fermata.addon.chat"
+    namespace = "com.immrhy.learningandroidapptool.fermata.addon.chat"
     defaultConfig {
         versionCode 1
         versionName "1.0"
@@ -12,7 +12,7 @@ ext {
             [
                     name   : 'chat',
                     icon   : 'chat',
-                    class  : 'me.aap.fermata.addon.chat.ChatAddon',
+                    class  : 'com.immrhy.learningandroidapptool.fermata.addon.chat.ChatAddon',
                     enabled: false
             ]
     ]

@@ -20,13 +20,13 @@ ext {
             [
                     name       : 'translate',
                     icon       : 'translate',
-                    class      : 'me.aap.fermata.addon.TranslateAddon',
+                    class      : 'com.immrhy.learningandroidapptool.fermata.addon.TranslateAddon',
                     hasSettings: false
             ],
             [
                     name   : 'subgen',
                     icon   : 'subgen',
-                    class  : 'me.aap.fermata.addon.SubGenAddon',
+                    class  : 'com.immrhy.learningandroidapptool.fermata.addon.SubGenAddon',
                     depends: 'exoplayer,translate'
             ],
     ]
@@ -145,10 +145,10 @@ gradle.projectsEvaluated {
     }
 
     def addonInfo = new StringBuilder(1024)
-    addonInfo.append('me.aap.utils.collection.CollectionUtils.sort(new me.aap.fermata.addon.AddonInfo[] {\n')
+    addonInfo.append('com.immrhy.learningandroidapptool.utils.collection.CollectionUtils.sort(new com.immrhy.learningandroidapptool.fermata.addon.AddonInfo[] {\n')
     addons.forEach {
         def name = it['name']
-        addonInfo.append("  new me.aap.fermata.addon.AddonInfo(" +
+        addonInfo.append("  new com.immrhy.learningandroidapptool.fermata.addon.AddonInfo(" +
                 "\"${it.get('module', name)}\", \"${it['class']}\", " +
                 "R.string.addon_name_${name}, R.drawable.${it['icon']}, " +
                 "${it['order']}, ${it['hasSettings']}, ${it['enabled']}, " +
@@ -157,7 +157,7 @@ gradle.projectsEvaluated {
 
     def infoStr = addonInfo.append('})').toString()
     project(':fermata').android.productFlavors.forEach {
-        it.buildConfigField 'me.aap.fermata.addon.AddonInfo[]', 'ADDONS', infoStr
+        it.buildConfigField 'com.immrhy.learningandroidapptool.fermata.addon.AddonInfo[]', 'ADDONS', infoStr
     }
 }
 

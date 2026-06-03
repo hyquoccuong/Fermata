@@ -2,8 +2,8 @@ if (gradle.ext.enableGoogleServices) apply plugin: 'com.google.gms.google-servic
 
 android {
     defaultConfig {
-        namespace = 'me.aap.fermata'
-        applicationId project.getProperties().getOrDefault('APP_ID', 'me.aap.fermata')
+        namespace = 'com.immrhy.learningandroidapptool.fermata'
+        applicationId project.getProperties().getOrDefault('APP_ID', 'com.immrhy.learningandroidapptool.fermata')
         versionCode VERSION_CODE
         versionName VERSION_NAME
         base.archivesName = "fermata-$versionName"
@@ -92,7 +92,7 @@ android {
 
     dynamicFeatures.addAll(gradle.ext.modules)
 
-    namespace = 'me.aap.fermata'
+    namespace = 'com.immrhy.learningandroidapptool.fermata'
 }
 
 dependencies {

@@ -1,5 +1,5 @@
 android {
-    namespace = "me.aap.fermata.addon.poi"
+    namespace = "com.immrhy.learningandroidapptool.fermata.addon.poi"
     defaultConfig {
         versionCode 1
         versionName "1.0"
@@ -12,7 +12,7 @@ ext {
             [
                     name   : 'poi',
                     icon   : 'poi',
-                    class  : 'me.aap.fermata.addon.poi.PoiAddon',
+                    class  : 'com.immrhy.learningandroidapptool.fermata.addon.poi.PoiAddon',
                     enabled: false,
                     auto   : true
             ]

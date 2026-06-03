@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <me.aap.fermata.ui.view.VideoView
+    <com.immrhy.learningandroidapptool.fermata.ui.view.VideoView
         android:id="@+id/video_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <me.aap.fermata.ui.view.SwipeRefresh
+    <com.immrhy.learningandroidapptool.fermata.ui.view.SwipeRefresh
         android:id="@+id/swiperefresh"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -26,14 +26,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline">
 
-        <me.aap.fermata.ui.view.FrameView
+        <com.immrhy.learningandroidapptool.fermata.ui.view.FrameView
             android:id="@+id/frame_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:colorBackground"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".ui.activity.MainActivity" />
-    </me.aap.fermata.ui.view.SwipeRefresh>
+    </com.immrhy.learningandroidapptool.fermata.ui.view.SwipeRefresh>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

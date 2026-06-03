@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <me.aap.utils.ui.view.ScalableTextView
+    <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
         android:id="@+id/title"
         style="?attr/appMediaItemStyle"
         android:layout_width="0dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlSymmetry" />
 
-    <me.aap.utils.ui.view.ScalableTextView
+    <com.immrhy.learningandroidapptool.utils.ui.view.ScalableTextView
         android:id="@+id/subtitle"
         style="?attr/appMediaItemStyle"
         android:layout_width="0dp"

@@ -1,5 +1,5 @@
 -keepattributes LineNumberTable,SourceFile
--keepnames class me.aap.utils.** { *; }
+-keepnames class com.immrhy.learningandroidapptool.utils.** { *; }
 
 -keep class ai.onnxruntime.** { *; }
 -keep class com.jcraft.jsch.** { *; }
@@ -8,7 +8,7 @@
 -keep class com.google.api.services.drive.** { *; }
 -keepclassmembers class * { @com.google.api.client.util.Key <fields>; }
 
--assumenosideeffects class me.aap.utils.log.Log {
+-assumenosideeffects class com.immrhy.learningandroidapptool.utils.log.Log {
     public static void d(...);
 }
 

@@ -1,5 +1,5 @@
 android {
-    namespace = "me.aap.fermata.engine.vlc"
+    namespace = "com.immrhy.learningandroidapptool.fermata.engine.vlc"
     defaultConfig {
         versionCode 1
         versionName "1.0"
