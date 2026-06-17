@@ -1,0 +1,38 @@
+LẦN ĐẦU
+
+# 1. Tạo và khởi chạy container lần đầu
+docker run -d --name Fermata andreypavlenko/fermata tail -f /dev/null
+
+# 2. Chạy lệnh build bên trong container đó
+docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
+
+# 3. Copy file ra ngoài máy thật
+docker cp Fermata:/home/mobiledevops/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
+
+
+LẦN SAU
+
+# 1. Bật lại container cũ (nếu nó đang tắt), Docker sẽ giữ nguyên mọi cache cũ
+docker start Fermata
+
+# 2. Đồng bộ code mới sửa vào container (nếu bạn sửa code ở máy thật)
+# docker cp ./thư_mục_code_mới_sửa Fermata:/home/mobiledevops/Fermata/
+docker cp D:\Fermata\. Fermata:/home/circleci/Fermata/
+
+# 3. Ra lệnh build lại. Gradle và CMake thấy cache cũ sẽ nhảy cóc cực nhanh!
+docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
+
+# 4. Lấy file .aab mới ra
+docker cp Fermata:/home/mobiledevops/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
+
+
+
+//Tìm file
+Chạy ngoài docker
+docker exec -it Fermata find / -name *.aab
+sẽ ra link
+/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/fermata-2.0.1-auto-release.aab
+
+Copy file ra ngoài
+docker cp Fermata:/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/fermata-2.0.1-auto-release.aab .
+Successfully copied 184MB (transferred 184MB) to D:\Fermata\.
