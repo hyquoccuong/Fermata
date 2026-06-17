@@ -4,7 +4,7 @@ docker run -d --name Fermata andreypavlenko/fermata tail -f /dev/null
 # 2. Chạy lệnh build bên trong container đó
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 # 3. Copy file ra ngoài máy thật
-docker cp Fermata:/home/mobiledevops/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
+docker cp Fermata:/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
 
 
 LẦN SAU
@@ -24,11 +24,11 @@ git pull origin dev
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 
 # 4. Lấy file .aab mới ra
-docker cp Fermata:/home/mobiledevops/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
+docker cp Fermata:/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
 
 
 
-//Tìm file
+Tìm file
 Chạy ngoài docker
 docker exec -it Fermata find / -name *.aab
 sẽ ra link
@@ -37,3 +37,17 @@ sẽ ra link
 Copy file ra ngoài
 docker cp Fermata:/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/fermata-2.0.1-auto-release.aab .
 Successfully copied 184MB (transferred 184MB) to D:\Fermata\.
+
+Đổi signed key
+Mục số 1: Bấm Download encryption public key (Bạn sẽ nhận được file encryption_public_key.pem).
+Mục số 2: Bấm Download PEPK tool (Bạn sẽ nhận được file pepk.jar).
+Sau khi tải xong, hãy copy cả 2 file encryption_public_key.pem và pepk.jar thảy chung vào thư mục D:\android_keystore\key cho dễ làm việc.
+
+D:\Fermata>docker cp D:\android_keystore\key\. Fermata:/home/circleci/project/
+Successfully copied 9.14MB (transferred 9.14MB) to Fermata:/home/circleci/project/
+
+D:\>docker exec -it Fermata /bin/bash
+java -jar pepk.jar --keystore=key0 --alias=key0 --output=output.zip --include-cert --rsa-aes-encryption --encryption-key-path=encryption_public_key.pem
+
+D:\Fermata>docker cp Fermata:/home/circleci/project/output.zip D:\android_keystore\key\
+Successfully copied 2.62kB (transferred 4.61kB) to D:\android_keystore\key\
