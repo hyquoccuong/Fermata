@@ -1,23 +1,24 @@
 LẦN ĐẦU
-
 # 1. Tạo và khởi chạy container lần đầu
 docker run -d --name Fermata andreypavlenko/fermata tail -f /dev/null
-
 # 2. Chạy lệnh build bên trong container đó
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
-
 # 3. Copy file ra ngoài máy thật
 docker cp Fermata:/home/mobiledevops/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
 
 
 LẦN SAU
-
 # 1. Bật lại container cũ (nếu nó đang tắt), Docker sẽ giữ nguyên mọi cache cũ
 docker start Fermata
 
 # 2. Đồng bộ code mới sửa vào container (nếu bạn sửa code ở máy thật)
-# docker cp ./thư_mục_code_mới_sửa Fermata:/home/mobiledevops/Fermata/
-docker cp D:\Fermata\. Fermata:/home/circleci/Fermata/
+docker exec -it Fermata /bin/bash
+- nếu chưa có git thì
+rm -rf Fermata
+git clone -b dev https://github.com/hyquoccuong/Fermata.git
+- có rồi thì pull
+cd Fermata
+git pull origin dev
 
 # 3. Ra lệnh build lại. Gradle và CMake thấy cache cũ sẽ nhảy cóc cực nhanh!
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
