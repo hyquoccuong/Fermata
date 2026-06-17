@@ -51,3 +51,9 @@ java -jar pepk.jar --keystore=key0 --alias=key0 --output=output.zip --include-ce
 
 D:\Fermata>docker cp Fermata:/home/circleci/project/output.zip D:\android_keystore\key\
 Successfully copied 2.62kB (transferred 4.61kB) to D:\android_keystore\key\
+
+cat local.properties
+circleci@eee5e47c69d0:~/Fermata$ rm -f local.properties
+circleci@eee5e47c69d0:~/Fermata$ rm -f .local.properties.swp
+circleci@eee5e47c69d0:~/Fermata$ cd /home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/
+circleci@eee5e47c69d0:~/Fermata/fermata/build/outputs/bundle/autoRelease$ rm -f fermata-2.0.1-auto-release.aab
