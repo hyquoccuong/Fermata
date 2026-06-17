@@ -49,6 +49,7 @@ build() {
   local app_flavor=${APP_ID_SFX:-$(grep -oP "${TASK}Flavor=\K.+" "$DIR/local.properties"  2>/dev/null || true)}
   local app_sfx=${APP_ID_SFX:-$(grep -oP "${TASK}IdSfx=\K.+" "$DIR/local.properties"  2>/dev/null || true)}
   [ -z "$app_sfx" ] || local app_sfx="-PAPP_ID_SFX=$app_sfx"
+  [ -z "$CUSTOM_APP_ID" ] || local custom_app_id="-PCUSTOM_APP_ID=$CUSTOM_APP_ID"
   if [ $TASK = 'apk' ]; then
     local task="package${app_flavor}AutoReleaseUniversalApk"
     local abi="-PABI=$1"
@@ -57,7 +58,7 @@ build() {
     local task="bundle${app_flavor}AutoRelease"
   fi
 
-  ./gradlew $CLEAN fermata:$task $abi $app_sfx
+  ./gradlew $CLEAN fermata:$task $abi $app_sfx $custom_app_id
   for path in $(ls fermata/build/outputs/*/*/fermata*.$ext); do
     local version=${path##*fermata-}
     version=${version%%-*}

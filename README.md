@@ -40,13 +40,19 @@ cd Fermata
 
 ### Build AAB
 ```bash
+# To change the package name suffix only:
 ./gradlew bundleAutoRelease -PAPP_ID_SFX=.type.your.pkg.sfx.here
+# To change the entire package name:
+./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 find $PWD -name *.aab
 ```
 
 ### Build APK
 ```bash
+# To change the package name suffix only:
 ./gradlew bundleAutoRelease -PAPP_ID_SFX=.type.your.pkg.sfx.here
+# To change the entire package name:
+./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 find $PWD -name *.apk
 ```
 

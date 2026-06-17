@@ -88,7 +88,7 @@ subprojects {
                 }
                 auto {
                     dimension "version"
-                    applicationIdSuffix '.auto' + project.getProperties().getOrDefault('APP_ID_SFX', '')
+                    applicationIdSuffix (project.hasProperty('CUSTOM_APP_ID') ? '' : '.auto') + project.getProperties().getOrDefault('APP_ID_SFX', '')
                 }
             }
         }
