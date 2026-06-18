@@ -13,9 +13,9 @@ if (localPropsFile.isFile()) {
 if ((gradle.ext.localProps['storeFile'] == null ||
         !file(gradle.ext.localProps['storeFile']).isFile())) {
     def localProps = gradle.ext.localProps
-    localProps.putIfAbsent('storeFile', "${rootDir}/res/key0".toString())
-    localProps.putIfAbsent('keyAlias', 'key0')
-    localProps.putIfAbsent('keyPassword', 'Cuo7575!')
+    localProps.putIfAbsent('storeFile', "${rootDir}/res/fermata.jks".toString())
+    localProps.putIfAbsent('keyAlias', 'fermata')
+    localProps.putIfAbsent('keyPassword', 'fermata')
     localProps.putIfAbsent('storePassword', localProps['keyPassword'])
     apply from: "${rootDir}/res/build_jks.gradle"
     localPropsFile.withOutputStream { out ->
