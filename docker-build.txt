@@ -1,3 +1,8 @@
+docker run -ti --name Fermata andreypavlenko/fermata
+đặt passphrase: key0
+password: Cuo7575!
+password: Cuo7575!
+
 LẦN ĐẦU
 # 1. Tạo và khởi chạy container lần đầu
 docker run -d --name Fermata andreypavlenko/fermata tail -f /dev/null
@@ -23,10 +28,10 @@ git pull origin dev
 
 # 3. Ra lệnh build lại. Gradle và CMake thấy cache cũ sẽ nhảy cóc cực nhanh!
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
+docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.hytruclinh.apptool.beta
 
 # 4. Lấy file .aab mới ra
 docker cp Fermata:/home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/app-auto-release.aab .
-
 
 
 Tìm file
@@ -48,7 +53,15 @@ D:\Fermata>docker cp D:\android_keystore\key\. Fermata:/home/circleci/project/
 Successfully copied 9.14MB (transferred 9.14MB) to Fermata:/home/circleci/project/
 
 D:\>docker exec -it Fermata /bin/bash
-java -jar pepk.jar --keystore=key0 --alias=key0 --output=output.zip --include-cert --rsa-aes-encryption --encryption-key-path=encryption_public_key.pem
+java -jar pepk.jar --keystore=fermata.jks --alias=key0 --output=output.zip --include-cert --rsa-aes-encryption --encryption-key-path=encryption_public_key.pem
+
+circleci@0fa8a46e8303:~/project$ ls
+encryption_public_key.pem  fermata.jks  local.properties  pepk.jar
+<ude-cert --rsa-aes-encryption --encryption-key-path=encryption_public_key.pem
+Enter password for store 'fermata.jks':
+Enter password for key 'key0':
+circleci@0fa8a46e8303:~/project$ ls
+encryption_public_key.pem  fermata.jks  local.properties  output.zip  pepk.jar
 
 D:\Fermata>docker cp Fermata:/home/circleci/project/output.zip D:\android_keystore\key\
 Successfully copied 2.62kB (transferred 4.61kB) to D:\android_keystore\key\
@@ -58,3 +71,16 @@ circleci@eee5e47c69d0:~/Fermata$ rm -f local.properties
 circleci@eee5e47c69d0:~/Fermata$ rm -f .local.properties.swp
 circleci@eee5e47c69d0:~/Fermata$ cd /home/circleci/Fermata/fermata/build/outputs/bundle/autoRelease/
 circleci@eee5e47c69d0:~/Fermata/fermata/build/outputs/bundle/autoRelease$ rm -f fermata-2.0.1-auto-release.aab
+
+build lại 1 lần để tạo file fermata.jks, local.properties copy vào project
+circleci@0fa8a46e8303:~/Fermata/res$ cp fermata.jks ../../project/
+circleci@0fa8a46e8303:~/Fermata$ cp local.properties ../project/
+
+đổi git
+
+copy 2 file kia vào lại
+circleci@0fa8a46e8303:~/project$ cp local.properties ../Fermata/
+circleci@0fa8a46e8303:~/project$ cp fermata.jks ../Fermata/res/
+
+build lại
+circleci@0fa8a46e8303:~/Fermata$ ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.hytruclinh.apptool.beta
