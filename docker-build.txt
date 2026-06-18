@@ -1,6 +1,7 @@
 LẦN ĐẦU
 # 1. Tạo và khởi chạy container lần đầu
 docker run -d --name Fermata andreypavlenko/fermata tail -f /dev/null
+sudo apt-get update && sudo apt-get install -y ninja-build
 # 2. Chạy lệnh build bên trong container đó
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 # 3. Copy file ra ngoài máy thật
