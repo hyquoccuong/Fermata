@@ -601,7 +601,7 @@ public class MainActivityDelegate extends ActivityDelegate
 	public void setVideoMode(boolean videoMode, @Nullable VideoView v) {
 		if (videoMode == this.videoMode) return;
 		floatingButton.setVisibility(videoMode ? GONE : VISIBLE);
-		if (!videoMode) homeButton.setVisibility(GONE);
+		if (videoMode) homeButton.setVisibility(GONE);
 		ControlPanelView cp = getControlPanel();
 
 		if (videoMode) {

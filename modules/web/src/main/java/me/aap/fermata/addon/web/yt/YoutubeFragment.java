@@ -83,7 +83,7 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 
 			if (hb != null) {
 				hb.setImageResource(me.aap.fermata.R.drawable.home);
-				hb.setOnClickListener(v -> webView.loadUrl(DEFAULT_URL));
+				hb.setOnClickListener(v -> loadUrl(DEFAULT_URL));
 				hb.setVisibility(a.isVideoMode() ? View.GONE : View.VISIBLE);
 			}
 
@@ -169,6 +169,19 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 				b.getMediaSessionCallback().onPlay();
 			}
 		});
+	}
+
+	@Override
+	public void switchingTo(ActivityFragment from) {
+		super.switchingTo(from);
+		MainActivityDelegate a = MainActivityDelegate.getActivityDelegate(getContext()).peek();
+		if (a == null) return;
+		FloatingButton hb = a.getHomeButton();
+		if (hb != null) {
+			hb.setImageResource(me.aap.fermata.R.drawable.home);
+			hb.setOnClickListener(v -> loadUrl(DEFAULT_URL));
+			hb.setVisibility(a.isVideoMode() ? View.GONE : View.VISIBLE);
+		}
 	}
 
 	@Override
