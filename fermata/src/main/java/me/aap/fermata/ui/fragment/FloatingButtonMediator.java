@@ -27,6 +27,7 @@ public class FloatingButtonMediator implements BackMenu {
 
 	@Override
 	public int getIcon(FloatingButton fb) {
+		if (fb.getId() == R.id.home_button) return R.drawable.home;
 		MainActivityDelegate a = MainActivityDelegate.get(fb.getContext());
 		if (a.isVideoMode() || !a.isRootPage()) return getBackIcon();
 		if (isAddFolderEnabled(a.getActiveFragment())) return R.drawable.add_folder;

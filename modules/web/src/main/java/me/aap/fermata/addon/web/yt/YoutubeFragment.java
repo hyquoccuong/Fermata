@@ -202,6 +202,7 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 		if (e == me.aap.utils.ui.activity.ActivityListener.FRAGMENT_CONTENT_CHANGED) {
 			FloatingButton hb = a.getHomeButton();
 			if ((hb != null) && hb.hasOnClickListeners()) {
+				hb.setImageResource(me.aap.fermata.R.drawable.home);
 				hb.setVisibility(a.isVideoMode() ? View.GONE : View.VISIBLE);
 			}
 		}

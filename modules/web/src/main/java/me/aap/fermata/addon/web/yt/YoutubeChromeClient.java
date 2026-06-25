@@ -62,6 +62,7 @@ public class YoutubeChromeClient extends FermataChromeClient {
 	}
 
 	protected boolean onTouchEvent(View v, MotionEvent event) {
+		super.onTouchEvent(v, event);
 		return isFullScreen() && getFullScreenView().onTouchEvent(event);
 	}
 }
