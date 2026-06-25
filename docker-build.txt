@@ -29,6 +29,7 @@ git pull origin dev
 # 3. Ra lệnh build lại. Gradle và CMake thấy cache cũ sẽ nhảy cóc cực nhanh!
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.your.package.name
 thêm --configuration-cache để tăng tốc https://docs.gradle.org/9.5.1/userguide/configuration_cache_enabling.html
+D:\Fermata\gradle\libs.versions.toml sửa version trước khi build
 docker exec -it Fermata ./gradlew bundleAutoRelease -PCUSTOM_APP_ID=com.hytruclinh.apptool.beta
 
 # 4. Lấy file .aab mới ra
