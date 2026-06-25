@@ -63,6 +63,18 @@
         app:layout_constraintBottom_toTopOf="@id/control_panel"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <me.aap.utils.ui.view.FloatingButton
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:alpha="0.5"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/floating_button"
+        app:layout_constraintEnd_toStartOf="@id/floating_button"
+        app:layout_constraintTop_toTopOf="@id/floating_button" />
+
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/content_loading_progress"
         style="?android:attr/progressBarStyleLarge"

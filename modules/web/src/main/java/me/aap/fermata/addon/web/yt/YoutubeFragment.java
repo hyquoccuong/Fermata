@@ -26,6 +26,8 @@ import me.aap.fermata.media.service.FermataServiceUiBinder;
 import me.aap.fermata.media.service.MediaSessionCallback;
 import me.aap.fermata.ui.activity.MainActivityDelegate;
 import me.aap.fermata.ui.view.VideoView;
+import me.aap.utils.ui.fragment.ActivityFragment;
+import me.aap.utils.ui.view.FloatingButton;
 import me.aap.utils.function.LongSupplier;
 import me.aap.utils.pref.PreferenceStore;
 import me.aap.utils.pref.PreferenceStore.Pref;
@@ -76,6 +78,15 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 			YoutubeWebClient webClient = new YoutubeWebClient();
 			YoutubeChromeClient chromeClient = new YoutubeChromeClient(webView, videoView);
 			webView.init(addon, webClient, chromeClient);
+
+			FloatingButton hb = a.getHomeButton();
+
+			if (hb != null) {
+				hb.setImageResource(me.aap.fermata.R.drawable.home);
+				hb.setOnClickListener(v -> webView.loadUrl(DEFAULT_URL));
+				hb.setVisibility(a.isVideoMode() ? View.GONE : View.VISIBLE);
+			}
+
 			registerListeners(a);
 			webView.loadUrl(DEFAULT_URL);
 			if (!DEFAULT_URL.equals(url)) a.post(() -> webView.loadUrl(url));
@@ -158,6 +169,29 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 				b.getMediaSessionCallback().onPlay();
 			}
 		});
+	}
+
+	@Override
+	public void switchingFrom(ActivityFragment to) {
+		super.switchingFrom(to);
+		MainActivityDelegate a = MainActivityDelegate.getActivityDelegate(getContext()).peek();
+		if (a == null) return;
+		FloatingButton hb = a.getHomeButton();
+		if (hb != null) {
+			hb.setVisibility(View.GONE);
+			hb.setOnClickListener(null);
+		}
+	}
+
+	@Override
+	public void onActivityEvent(MainActivityDelegate a, long e) {
+		super.onActivityEvent(a, e);
+		if (e == me.aap.utils.ui.activity.ActivityListener.FRAGMENT_CONTENT_CHANGED) {
+			FloatingButton hb = a.getHomeButton();
+			if ((hb != null) && hb.hasOnClickListeners()) {
+				hb.setVisibility(a.isVideoMode() ? View.GONE : View.VISIBLE);
+			}
+		}
 	}
 
 	public void loadUrl(String url) {

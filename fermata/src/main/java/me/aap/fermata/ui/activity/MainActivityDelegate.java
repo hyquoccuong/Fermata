@@ -163,6 +163,7 @@ public class MainActivityDelegate extends ActivityDelegate
 	private BodyLayout body;
 	private ControlPanelView controlPanel;
 	private FloatingButton floatingButton;
+	private FloatingButton homeButton;
 	private ContentLoadingProgressBar progressBar;
 	private FutureSupplier<?> contentLoading;
 	private boolean barsHidden;
@@ -574,6 +575,10 @@ public class MainActivityDelegate extends ActivityDelegate
 		return floatingButton;
 	}
 
+	public FloatingButton getHomeButton() {
+		return homeButton;
+	}
+
 	@Override
 	public float getTextIconSize() {
 		return getPrefs().getTextIconSizePref(this);
@@ -595,6 +600,8 @@ public class MainActivityDelegate extends ActivityDelegate
 
 	public void setVideoMode(boolean videoMode, @Nullable VideoView v) {
 		if (videoMode == this.videoMode) return;
+		floatingButton.setVisibility(videoMode ? GONE : VISIBLE);
+		if (!videoMode) homeButton.setVisibility(GONE);
 		ControlPanelView cp = getControlPanel();
 
 		if (videoMode) {
@@ -995,7 +1002,9 @@ public class MainActivityDelegate extends ActivityDelegate
 		body = a.findViewById(R.id.body_layout);
 		controlPanel = a.findViewById(R.id.control_panel);
 		floatingButton = a.findViewById(R.id.floating_button);
+		homeButton = a.findViewById(R.id.home_button);
 		floatingButton.setScale(getPrefs().getTextIconSizePref(this));
+		homeButton.setScale(getPrefs().getTextIconSizePref(this));
 		controlPanel.bind(getMediaServiceBinder());
 
 		if (VERSION.SDK_INT >= VERSION_CODES.VANILLA_ICE_CREAM && !a.isCarActivity()) {
