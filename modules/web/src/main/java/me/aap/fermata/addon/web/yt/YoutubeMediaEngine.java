@@ -309,8 +309,7 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 
 		@Nullable
 		@Override
-		public MediaEngine getMediaEngine(@Nullable MediaEngine current, MediaEngine.Listener listener) {
-			Log.d("FERMATA_DEBUG: getMediaEngine called for YoutubeItem");
+		public me.aap.fermata.media.engine.MediaEngine getMediaEngine(@Nullable me.aap.fermata.media.engine.MediaEngine current, me.aap.fermata.media.engine.MediaEngine.Listener listener) {
 			return engine;
 		}
 
