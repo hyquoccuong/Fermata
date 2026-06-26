@@ -115,8 +115,10 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 	public void prepare(PlayableItem source) {
 		if (source == next) {
 			web.next();
+			cb.onEnginePrepared(this);
 		} else if (source == prev) {
 			web.prev();
+			cb.onEnginePrepared(this);
 		} else {
 			cb.onEnginePrepared(this);
 		}
@@ -282,7 +284,7 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 		return (i instanceof YoutubeItem);
 	}
 
-	private static class YoutubeItem extends ExtPlayable {
+	private class YoutubeItem extends ExtPlayable {
 		public YoutubeItem(String id, @NonNull BrowsableItem parent, @NonNull VirtualResource resource) {
 			super(id, parent, resource);
 		}
@@ -300,6 +302,12 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 		@Override
 		public int getVideoEnginePref() {
 			return MEDIA_ENG_YT;
+		}
+
+		@Nullable
+		@Override
+		public MediaEngine getMediaEngine(@Nullable MediaEngine current, Listener listener) {
+			return YoutubeMediaEngine.this;
 		}
 
 		@Override
