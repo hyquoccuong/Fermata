@@ -1081,6 +1081,7 @@ public class MediaSessionCallback extends MediaSessionCompat.Callback
 		}
 
 		Log.w(ex, msg);
+		Log.e("FERMATA_DEBUG: Error playing item: " + i.getId() + " with engine: " + engine.getClass().getName());
 
 		if (tryAnotherEngine && (engine.getSource() != null)) {
 			this.engine = getEngineManager().createAnotherEngine(engine, this);

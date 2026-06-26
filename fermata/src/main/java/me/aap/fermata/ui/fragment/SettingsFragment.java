@@ -645,6 +645,10 @@ public class SettingsFragment extends MainActivityFragment
 				o.subtitle = R.string.import_prefs_sub;
 				o.onClick = () -> importPrefs(a);
 			});
+			sub1.addButton(o -> {
+				o.title = R.string.open_log;
+				o.onClick = () -> openLog(a);
+			});
 		}
 		if (BuildConfig.AUTO) {
 			sub1.addBooleanPref(o -> {
@@ -652,12 +656,6 @@ public class SettingsFragment extends MainActivityFragment
 				o.pref = MainActivityPrefs.CHECK_UPDATES;
 				o.title = R.string.check_updates;
 			});
-			if (!a.isCarActivityNotMirror()) {
-				sub1.addButton(o -> {
-					o.title = R.string.open_log;
-					o.onClick = () -> openLog(a);
-				});
-			}
 		}
 
 		return new PreferenceViewAdapter(set) {

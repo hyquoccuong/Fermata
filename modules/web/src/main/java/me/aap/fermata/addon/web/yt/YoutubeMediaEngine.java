@@ -62,9 +62,9 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 		this.web = web;
 		cb = a.getMediaSessionCallback();
 		mediaRoot = new ExtRoot("youtube", a.getLib());
-		next = new YoutubeItem(NEXT_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/next"));
-		prev = new YoutubeItem(PREV_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/prev"));
-		end = new YoutubeItem(END_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/end")) {
+		next = new YoutubeItem(this, NEXT_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/next"));
+		prev = new YoutubeItem(this, PREV_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/prev"));
+		end = new YoutubeItem(this, END_ID, mediaRoot, GenericFileSystem.getInstance().create("http://youtube.com/end")) {
 			@NonNull
 			@Override
 			public FutureSupplier<PlayableItem> getNextPlayable() {
@@ -284,9 +284,12 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 		return (i instanceof YoutubeItem);
 	}
 
-	private class YoutubeItem extends ExtPlayable {
-		public YoutubeItem(String id, @NonNull BrowsableItem parent, @NonNull VirtualResource resource) {
+	private static class YoutubeItem extends ExtPlayable {
+		private final YoutubeMediaEngine engine;
+
+		public YoutubeItem(YoutubeMediaEngine engine, String id, @NonNull BrowsableItem parent, @NonNull VirtualResource resource) {
 			super(id, parent, resource);
+			this.engine = engine;
 		}
 
 		@Override
@@ -306,8 +309,8 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 
 		@Nullable
 		@Override
-		public MediaEngine getMediaEngine(@Nullable MediaEngine current, MediaEngine.Listener listener) {
-			return YoutubeMediaEngine.this;
+		public me.aap.fermata.media.engine.MediaEngine getMediaEngine(@Nullable me.aap.fermata.media.engine.MediaEngine current, me.aap.fermata.media.engine.MediaEngine.Listener listener) {
+			return engine;
 		}
 
 		@Override
