@@ -327,7 +327,7 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 	private final class Current extends YoutubeItem {
 
 		public Current(String url) {
-			super(CURRENT_ID, mediaRoot, GenericFileSystem.getInstance().create(url));
+			super(YoutubeMediaEngine.this, CURRENT_ID, mediaRoot, GenericFileSystem.getInstance().create(url));
 		}
 
 		@NonNull
