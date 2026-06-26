@@ -187,7 +187,7 @@ public class YoutubeFragment extends WebBrowserFragment implements FermataServic
 	@Override
 	public void switchingFrom(ActivityFragment to) {
 		super.switchingFrom(to);
-		MainActivityDelegate a = MainActivityDelegate.getActivityDelegate(getContext()).peek();
+		MainActivityDelegate a = getActivityDelegate();
 		if (a == null) return;
 		FloatingButton hb = a.getHomeButton();
 		if (hb != null) {
