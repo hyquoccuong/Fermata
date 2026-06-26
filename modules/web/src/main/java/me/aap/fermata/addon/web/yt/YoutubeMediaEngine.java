@@ -306,7 +306,7 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 
 		@Nullable
 		@Override
-		public MediaEngine getMediaEngine(@Nullable MediaEngine current, Listener listener) {
+		public MediaEngine getMediaEngine(@Nullable MediaEngine current, MediaEngine.Listener listener) {
 			return YoutubeMediaEngine.this;
 		}
 
