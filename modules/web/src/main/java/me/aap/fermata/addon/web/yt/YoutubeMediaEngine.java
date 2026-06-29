@@ -95,9 +95,13 @@ class YoutubeMediaEngine implements MediaEngine, OverlayMenu.SelectionHandler {
 	}
 
 	void ended() {
-		current = end;
 		qualityUrl = null;
-		cb.onEngineEnded(this);
+		if (cb.getPlaybackControlPrefs().getPlayNextOnCompletionPref()) {
+			web.next();
+		} else {
+			current = end;
+			cb.onEngineEnded(this);
+		}
 	}
 
 	void paused() {

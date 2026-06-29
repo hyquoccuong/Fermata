@@ -203,6 +203,11 @@ public class YoutubeWebView extends FermataWebView {
 				      }
 				    }
 				  }
+				  // Dự phòng: Nếu không bấm được nút, thử tìm link tiếp theo và chuyển trang
+				  const nextLink = document.querySelector('a.compact-media-item-image, a.ytp-next-button');
+				  if (nextLink && nextLink.href) {
+				    window.location.href = nextLink.href;
+				  }
 				}
 				setTimeout(prevNextVideo, 600);
 				""".formatted(next ? 1 : 0, next ? 1 : 0, next ? "next" : "prev"), null));
