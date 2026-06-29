@@ -1151,6 +1151,7 @@ public class MediaSessionCallback extends MediaSessionCompat.Callback
 
 		switch (focusChange) {
 			case AUDIOFOCUS_GAIN:
+				Log.i("Audio focus event received: AUDIOFOCUS_GAIN");
 				if (playOnAudioFocus) {
 					playOnAudioFocus = false;
 					onPlay();
@@ -1161,8 +1162,10 @@ public class MediaSessionCallback extends MediaSessionCompat.Callback
 				}
 				break;
 			case AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
+				Log.i("Audio focus event received: AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK");
 				break;
 			case AUDIOFOCUS_LOSS_TRANSIENT:
+				Log.i("Audio focus event received: AUDIOFOCUS_LOSS_TRANSIENT");
 				if (!isPlaying()) return;
 				var eng = getEngine();
 				if ((eng != null) && eng.muteOnTransientFocusLoss()) {
@@ -1172,6 +1175,7 @@ public class MediaSessionCallback extends MediaSessionCompat.Callback
 				}
 			default:
 				if (isPlaying()) {
+					Log.i("Audio focus lost, pausing. Event: ", focusChange);
 					playOnAudioFocus = true;
 					onPause();
 				}

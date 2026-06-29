@@ -96,6 +96,16 @@ public class YoutubeWebView extends FermataWebView {
 		injectSponsorBlock();
 		addFocusHighlight();
 		CookieManager.getInstance().flush();
+		
+		// Ngăn chặn WebView bị suspend khi chạy nền
+		getSettings().setMediaPlaybackRequiresUserGesture(false);
+		evaluateJavascript("console.log('Background playback optimization enabled');", null);
+	}
+
+	@Override
+	protected void onWindowVisibilityChanged(int visibility) {
+		// Ép WebView luôn nghĩ rằng nó đang hiển thị để không bị đóng băng JavaScript
+		super.onWindowVisibilityChanged(VISIBLE);
 	}
 
 	protected void submitForm() {
